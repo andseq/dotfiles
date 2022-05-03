@@ -127,6 +127,22 @@ function M.setup()
  
 		-- LSP stuff
 		use {
+			"neovim/nvim-lspconfig",
+			opt = true,
+			event = "BufReadPre",
+			wants = { "cmp-nvim-lsp", "nvim-lsp-installer", "lua-dev.nvim" },
+			-- wants = { "cmp-nvim-lsp", "nvim-lsp-installer", "lsp_signature.nvim" },
+			config = function()
+				require("config.lsp").setup()
+			end,
+			requires = {
+				"williamboman/nvim-lsp-installer",
+				-- "ray-x/lsp_signature.nvim",
+				"folke/lua-dev.nvim",
+			},
+		}
+
+		use {
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
 			opt = true,
@@ -144,6 +160,7 @@ function M.setup()
 				"hrsh7th/cmp-calc",
 				"f3fora/cmp-spell",
 				"hrsh7th/cmp-emoji",
+				"hrsh7th/cmp-nvim-lsp",
 				{
 					"L3MON4D3/LuaSnip",
 					wants = "friendly-snippets",
