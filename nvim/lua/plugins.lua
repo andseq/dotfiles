@@ -80,14 +80,21 @@ function M.setup()
 		}
 
 		use {
-		 "kyazdani42/nvim-tree.lua",
-		 requires = {
-			 "kyazdani42/nvim-web-devicons",
-		 },
-		 cmd = { "NvimTreeToggle", "NvimTreeClose" },
+			 "kyazdani42/nvim-tree.lua",
+			 requires = {
+				 "kyazdani42/nvim-web-devicons",
+			 },
+			 cmd = { "NvimTreeToggle", "NvimTreeClose" },
 			 config = function()
 				 require("config.nvimtree").setup()
 			 end,
+		}
+
+		use {
+			'numToStr/Comment.nvim',
+			config = function()
+				require('Comment').setup()
+			end
 		}
 
 		-- Telescope
@@ -126,11 +133,16 @@ function M.setup()
 		}
  
 		-- LSP stuff
+		use({
+			"jose-elias-alvarez/null-ls.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
+		})
+
 		use {
 			"neovim/nvim-lspconfig",
 			opt = true,
 			event = "BufReadPre",
-			wants = { "cmp-nvim-lsp", "nvim-lsp-installer", "lua-dev.nvim" },
+			wants = { "cmp-nvim-lsp", "nvim-lsp-installer", "lua-dev.nvim", "null-ls.nvim" },
 			-- wants = { "cmp-nvim-lsp", "nvim-lsp-installer", "lsp_signature.nvim" },
 			config = function()
 				require("config.lsp").setup()
@@ -139,6 +151,13 @@ function M.setup()
 				"williamboman/nvim-lsp-installer",
 				-- "ray-x/lsp_signature.nvim",
 				"folke/lua-dev.nvim",
+				-- "jose-elias-alvarez/null-ls.nvim", 
+				{
+					"j-hui/fidget.nvim",
+					config = function()
+						require("fidget").setup {}
+					end,
+				},
 			},
 		}
 
