@@ -49,6 +49,7 @@ local function on_attach(client, bufnr)
 end
 
 local opts = {
+	autostart = false,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
