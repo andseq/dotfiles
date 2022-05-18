@@ -40,7 +40,7 @@ function M.setup()
   local cmp = require "cmp"
 
   cmp.setup {
-    completion = { completeopt = "menu,menuone,noinsert", keyword_length = 1 },
+    completion = { autocomplete = false, completeopt = "menu,menuone,noinsert", keyword_length = 1 },
     experimental = { native_menu = false, ghost_text = false },
     snippet = {
       expand = function(args)
@@ -136,13 +136,13 @@ function M.setup()
   })
 
   -- Use cmdline & path source for ':'
-  -- cmp.setup.cmdline(":", {
-  --   sources = cmp.config.sources({
-  --     { name = "path" },
-  --   }, {
-  --     { name = "cmdline" },
-  --   }),
-  -- })
+  cmp.setup.cmdline(":", {
+    sources = cmp.config.sources({
+      { name = "path" },
+    }, {
+      { name = "cmdline" },
+    }),
+  })
 end
 
 return M
