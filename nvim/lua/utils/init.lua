@@ -34,5 +34,21 @@ function M.info(msg, name)
   vim.notify(msg, vim.log.levels.INFO, { title = name })
 end
 
+-- taken from https://github.com/voyeg3r/nvim/blob/master/lua/utils.lua
+-- used to trim trailing whitespace
+function M.preserve(arguments)
+  local arguments = string.format('keepjumps keeppatterns execute %q', arguments)
+  -- local original_cursor = vim.fn.winsaveview()
+  local unpack = table.unpack or unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.api.nvim_command(arguments)
+  local lastline = vim.fn.line('$')
+  -- vim.fn.winrestview(original_cursor)
+  if line > lastline then
+          line = lastline
+  end
+  --api.nvim_win_set_cursor({0}, {line , col})
+end
+
 return M
 
