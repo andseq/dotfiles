@@ -40,7 +40,7 @@ function M.setup()
     use {
       "shaunsingh/nord.nvim",
       config = function()
-        vim.cmd "colorscheme nord"
+				require('config.theme.nord').setup()
       end,
     }
 
@@ -60,6 +60,13 @@ function M.setup()
 				require("config.lualine").setup()
 			end,
 			requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		}
+
+		use {
+			"b0o/incline.nvim",
+			config = function()
+				require("config.incline").setup()
+			end
 		}
 
 		use {
@@ -133,15 +140,15 @@ function M.setup()
 		}
  
 		-- LSP stuff
-		use({
-			"jose-elias-alvarez/null-ls.nvim",
-			requires = { "nvim-lua/plenary.nvim" },
-		})
+		-- use({
+		-- 	"jose-elias-alvarez/null-ls.nvim",
+		-- 	requires = { "nvim-lua/plenary.nvim" },
+		-- })
 
 		use {
 			"neovim/nvim-lspconfig",
 			opt = true,
-			event = "BufReadPre",
+			event = "BufEnter",
 			wants = { "cmp-nvim-lsp", "nvim-lsp-installer", "lua-dev.nvim", "null-ls.nvim" },
 			-- wants = { "cmp-nvim-lsp", "nvim-lsp-installer", "lsp_signature.nvim" },
 			config = function()
@@ -151,7 +158,7 @@ function M.setup()
 				"williamboman/nvim-lsp-installer",
 				-- "ray-x/lsp_signature.nvim",
 				"folke/lua-dev.nvim",
-				-- "jose-elias-alvarez/null-ls.nvim", 
+				"jose-elias-alvarez/null-ls.nvim",
 				{
 					"j-hui/fidget.nvim",
 					config = function()

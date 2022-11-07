@@ -1,0 +1,15 @@
+[include]
+	path = /Users/andersonsp/.config/dev/gitconfig
+[user]
+	name = Anderson Sequera
+	email = anderson.sp@example.com
+[alias]
+	co = checkout
+	ci = commit
+        ci-am = commit --amend
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        ds = diff --stat
+        last = log -1 HEAD
+        unstage = reset HEAD --

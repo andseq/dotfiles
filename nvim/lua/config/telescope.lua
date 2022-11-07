@@ -14,6 +14,7 @@ function M.setup()
           ["<C-p>"] = actions.cycle_history_prev,
         },
       },
+			file_ignore_patterns = { "%.rbi" },
     },
   }
 

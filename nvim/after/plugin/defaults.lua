@@ -22,21 +22,6 @@ opt.clipboard = "unnamedplus" -- Access system clipboard
 -- Time in milliseconds to wait for a mapped sequence to complete.
 opt.timeoutlen = 300
 
-opt.foldmethod='expr'
-opt.foldexpr='nvim_treesitter#foldexpr()'
-
--- opt.list = true
--- opt.listchars:append("eol:↴")
-
--- tabs to 4 spaces
-opt.expandtab=true
-opt.shiftwidth=4
-opt.softtabstop=4
-
--- set bash like file autocompletion
-opt.wildmode='longest,list,full'
-opt.wildmenu=true
-
 -- Highlight on yank
 vim.cmd [[
   augroup YankHighlight
