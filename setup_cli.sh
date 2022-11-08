@@ -22,12 +22,14 @@ mkdir -p ~/.config/kitty
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 # Linking files
-# ln -sf ~/shopify-dotfiles/nvim/ ~/.config/nvim
+ln -sf ~/code/dotfiles/nvim/ ~/.config/nvim
 ln -sf ~/code/dotfiles/zshrc ~/.zshrc
 ln -sf ~/code/dotfiles/antigenrc ~/.antigenrc
 ln -sf ~/code/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/code/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/code/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
+
+
 
 # Some of these tools need config files in place to modifiy them that is why
 # we put them here.
